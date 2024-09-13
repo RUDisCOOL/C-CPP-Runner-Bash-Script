@@ -1,6 +1,9 @@
 #!/usr/bin/bash
 
 RED='\033[31m'
+GREEN='\033[32m'
+BLUE='\033[34m'
+YELLOW='\033[33m'
 NC='\033[0m'
 REMOVE_AFTER_COMPLETE=false
 output_file_name=""
@@ -44,8 +47,8 @@ if [ -z "$output_file_name" ]; then
 fi
 
 # Debugging: Print file and output names
-echo "Compiling file: $file_name"
-echo "Output file: $output_file_name"
+echo -e "${YELLOW}Compiling file: $file_name${NC}"
+echo -e "${YELLOW}Output file: $output_file_name${NC}"
 
 # Compile based on file type
 if [ "$file_type" == "cpp" ]; then
@@ -64,7 +67,9 @@ if [ ! -f "$output_file_name" ]; then
 fi
 
 # Execute the binary
+echo -e "${GREEN}Executing the binary: ./${output_file_name}${BLUE}"
 "./${output_file_name}"
+echo -e "${NC}"
 
 # Check if the binary was executed successfully
 if [ $? -ne 0 ]; then

@@ -78,7 +78,7 @@ execution_status="$?"
 end_time=$(date +%s%N)
 
 # Execution Time
-elapsed_time_sec=$(awk "BEGIN { printf \"%.3f\", ($end_time - $start_time) / 1000000000 }")
+elapsed_time_sec=$(awk "BEGIN { printf \"%.4f\", ($end_time - $start_time) / 1000000000 }")
 echo -e "${BLUE}\nExecution Time: $elapsed_time_sec sec${NC}"
 
 # Check if the binary was executed successfully
